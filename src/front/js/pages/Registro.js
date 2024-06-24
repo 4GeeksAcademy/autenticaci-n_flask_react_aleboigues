@@ -18,7 +18,7 @@ export const Registro = () => {
 
     // hacer fetch
     try {
-      const response = await fetch("https://cuddly-adventure-64pp4r9w74gfr5p9-3001.app.github.dev/", {
+      const response = await fetch("https://cuddly-adventure-64pp4r9w74gfr5p9-3001.app.github.dev/api/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
