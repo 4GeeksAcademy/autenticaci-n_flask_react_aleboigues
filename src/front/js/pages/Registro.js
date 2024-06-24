@@ -12,13 +12,32 @@ export const Registro = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const dataToSend = { email, password };
 
-	//hacer fetch
+    // hacer fetch
+    try {
+      const response = await fetch("https://cuddly-adventure-64pp4r9w74gfr5p9-3001.app.github.dev/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dataToSend),
+      });
 
-    
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log("Registrado con éxito:", responseData);
+        
+      } else {
+        console.error("Error en el registro");
+        
+      }
+    } catch (error) {
+      console.error("Error en la solicitud:", error);
+      
+    }
   };
 
   return (
@@ -28,12 +47,12 @@ export const Registro = () => {
           <div className="card">
             <div className="card-body">
               <h2 className="card-title text-center mb-3 display-5">
-                Registro
+                Registro:
               </h2>
               <form onSubmit={handleSubmit}>
                 <div className="form-group mt-3 h6">
                   <label htmlFor="email" className="mb-1">
-                    Correo electrónico:
+                    Email:
                   </label>
                   <input
                     type="email"
@@ -70,4 +89,3 @@ export const Registro = () => {
     </div>
   );
 };
-
