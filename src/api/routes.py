@@ -42,7 +42,28 @@ def login():
         return jsonify({"msg": "Bad password"}), 401
     
 
-    
-
     access_token = create_access_token(identity=email)
     return jsonify(access_token=access_token)
+
+
+@api.route("/signup", methods=["POST"])
+def signup():
+    body = request.get_json()
+    print(body)
+
+    user=User.query.filter_by(email=body["email"]).first()
+    print(user)
+
+
+    if user is None:
+        user = User(email=body["email"], password=body["password"], is_active=True)
+
+        db.session.add(user)
+        db.session.commit()
+
+        response_body = {
+            "msg": "usuario creado"
+        }
+        return jsonify(response_body), 200
+    else:
+        return jsonify({"msg": "usuario ya creado con ese correo"}), 401
