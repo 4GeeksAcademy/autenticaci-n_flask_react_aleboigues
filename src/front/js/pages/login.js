@@ -46,7 +46,7 @@ const Login = () => {
                 Login
             </button>
             <Link to="/signup">
-                    <button className="btn btn-info mx-5">Register</button>
+                    <button className="btn btn-info mx-5">Registro</button>
             </Link>
             {errorMessage && (
             <div className="alert alert-danger mt-3" role="alert">

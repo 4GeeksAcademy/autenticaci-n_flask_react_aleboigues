@@ -50,7 +50,7 @@ const Signup = () => {
                             </div>
                         </div>
                         <button type="button" onClick={handleSignup} className="btn btn-primary">
-                            Register
+                            Registro
                         </button>
                         {error && <p className="text-danger">{error}</p>}
                     </form>

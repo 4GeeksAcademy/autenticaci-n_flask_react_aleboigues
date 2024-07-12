@@ -14,18 +14,18 @@ const Private = () => {
         <div className="text-center">
             {store.logged ? (
                 <div>
-                    <h1>Welcome, {store.user.email}!</h1>
-                    <p>This is a protected route.</p>
+                    <h1>Bienvenid@, {store.user.email}!</h1>
+                    <p>Esto es una ruta protegida.</p>
                 </div>
             ) : store.logged == false ? (
                 <div>
-                    <h1>Unauthorized</h1>
-                    <p>You need to be logged in to access this page.</p>
+                    <h1>No dispone de autorización</h1>
+                    <p>Necesitas estar registrad@ para acceder a la página.</p>
                 </div>
             ) : (
                 <div>
-                    <h1>Authenticating</h1>
-                    <p>Please wait while we verify your authentication status.</p>
+                    <h1>Autenticación</h1>
+                    <p>Por favor, espere mientras verificamos su identidad.</p>
                 </div>
             )}
         </div>
