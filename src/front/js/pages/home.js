@@ -1,14 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
+import { useNavigate } from "react-router-dom";
 import "../../styles/home.css";
-import { Registro } from "./Registro";
-
 
 export const Home = () => {
+	const { store, actions } = useContext(Context);
+	const navigate = useNavigate()
 
 	return (
-		<div className="d-flex justify-content-center mt-5 ">
-			<div className="col-4">
-				<Registro></Registro>
+		<div className="text-center mt-5 container">
+			{ store.token === null ?
+			<div className="row mt-3">
+				<button className="btn btn-dark col-lg-6 mx-auto" onClick={() => navigate('/signup')}>
+					Signup
+				</button>  
+			</div> : '' }
+			{ store.token === null ?
+			<div className="row mt-3">
+				<button className="btn btn-dark col-lg-6 mx-auto" onClick={() => navigate('/login')}>
+					Login
+				</button>
+			</div> : '' }
+			<div className="row mt-3">
+				<button className="btn btn-info col-lg-6 mx-auto" onClick={() => navigate('/private')}>
+					Secret page
+				</button>
 			</div>
 		</div>
 	);
