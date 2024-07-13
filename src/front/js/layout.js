@@ -6,16 +6,14 @@ import { Home } from "./pages/home";
 import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-import  Signup  from './pages/signup.js'
-import  Login  from './pages/login.js'
-import  Private  from './pages/private.js'
-
+import Signup from './pages/signup';
+import Login from './pages/login';
+import Private from './pages/private';
 
 const Layout = () => {
-    
     const basename = process.env.BASENAME || "";
 
-    if(!process.env.BACKEND_URL || process.env.BACKEND_URL == "") return <BackendURL/ >;
+    if (!process.env.BACKEND_URL || process.env.BACKEND_URL === "") return <BackendURL />;
 
     return (
         <div>
